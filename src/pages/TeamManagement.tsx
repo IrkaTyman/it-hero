@@ -316,12 +316,12 @@ export default function TeamManagement() {
           <CardContent>
             <div className="space-y-2">
               {[
-                { title: "Complete team formation", done: true },
-                { title: "Select challenge", done: true },
-                { title: "Submit project idea", done: false },
-                { title: "Create repository", done: false },
-                { title: "Submit project", done: false },
-                { title: "Prepare presentation", done: false },
+                { title: "Завершить формирование команды", done: true },
+                { title: "Выбрать задачу", done: true },
+                { title: "Отправить идею проекта", done: false },
+                { title: "Создать репозиторий", done: false },
+                { title: "Отправить проект", done: false },
+                { title: "Подготовить презентацию", done: false },
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3 py-2">
                   <div className={`h-6 w-6 rounded-full flex items-center justify-center ${item.done ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground"}`}>

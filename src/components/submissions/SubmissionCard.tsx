@@ -90,7 +90,7 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <Input
                             type="url"
-                            placeholder={`Enter your ${type} URL`}
+                            placeholder={`Введите ссылку на ${type}`}
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
                             disabled={isExpired}

@@ -33,15 +33,18 @@ export const registerUser = async ({
 };
 
 // 🔹 Авторизация пользователя
-export const authorizeUser = async (email: string, password: string) => {
+export const loginUser = async (email: string, password: string) => {
     const user = await findUserByEmail(email);
 
     if (!user) throw new Error('Пользователь не найден');
     if (user.fields['Пароль'] !== password) throw new Error('Неверный пароль');
 
+    console.log(user)
     return {
-        id: user.id,
-        fields: user.fields,
+        "ID": user.id,
+        'Полное имя': user.fields["Полное имя"].toString(),
+        'Почта': user.fields["Почта"].toString(),
+        'Роль': user.fields["Роль"] as AirtableUserRole
     };
 };
 

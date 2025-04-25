@@ -28,6 +28,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { mapRoleToAirtable } from "@/types/mappers.ts";
 
 interface LayoutProps {
   children: ReactNode;
@@ -135,7 +136,7 @@ function MainSidebar() {
             </Avatar>
             <div>
               <div className="font-medium text-sm">{user?.name}</div>
-              <div className="text-xs text-muted-foreground capitalize">{user?.role}</div>
+              <div className="text-xs text-muted-foreground capitalize">{mapRoleToAirtable(user?.role)}</div>
             </div>
           </div>
           <Button

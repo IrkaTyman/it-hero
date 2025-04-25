@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { User, UserRole } from "@/types";
-import { registerUser } from "@/api/user.ts";
+import { loginUser, registerUser } from "@/api/user.ts";
 import { mapAirtableUserToUser } from "@/types/mappers.ts";
 
 interface AuthContextType {
@@ -48,20 +48,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      
-      // Find user with matching email (for demo purposes)
-      const user = mockUsers.find(u => u.email === email);
+      const user = await loginUser(email, password);
       
       if (!user) {
         throw new Error("Invalid email or password");
       }
 
-      
       // Save user to state and localStorage
-      setUser(user);
-      localStorage.setItem("hackathonUser", JSON.stringify(user));
+      setUser(mapAirtableUserToUser(user));
+      localStorage.setItem("hackathonUser", JSON.stringify(mapAirtableUserToUser(user)));
     } finally {
       setIsLoading(false);
     }
@@ -77,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })
 
       setUser(mapAirtableUserToUser(newUser));
-      localStorage.setItem("hackathonUser", JSON.stringify(newUser));
+      localStorage.setItem("hackathonUser", JSON.stringify(mapAirtableUserToUser(user)));
     } finally {
       setIsLoading(false);
     }

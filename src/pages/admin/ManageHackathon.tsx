@@ -44,30 +44,30 @@ import { toast } from "sonner";
 
 // Define the form schema for hackathon details
 const hackathonFormSchema = z.object({
-  title: z.string().min(5, "Title must be at least 5 characters"),
-  description: z.string().min(20, "Description must be at least 20 characters"),
-  location: z.string().min(5, "Location must be at least 5 characters"),
+  title: z.string().min(5, "Заголовок должен быть не менее 5 символов"),
+  description: z.string().min(20, "Описание должно быть не менее 20 символов"),
+  location: z.string().min(5, "Местоположение должно быть не менее 5 символов"),
   startDate: z.date({
-    required_error: "Start date is required",
+    required_error: "Дата начала обязательна",
   }),
   endDate: z.date({
-    required_error: "End date is required",
+    required_error: "Дата окончания обязательна",
   }),
   registrationStartDate: z.date({
-    required_error: "Registration start date is required",
+    required_error: "Дата начала регистрации обязательна",
   }),
   registrationEndDate: z.date({
-    required_error: "Registration end date is required",
+    required_error: "Дата окончания регистрации обязательна",
   }),
   status: z.enum(["upcoming", "active", "completed"]),
 });
 
 // Define the schema for challenges
 const challengeSchema = z.object({
-  title: z.string().min(5, "Title must be at least 5 characters"),
-  description: z.string().min(20, "Description must be at least 20 characters"),
-  companyName: z.string().min(2, "Company name must be at least 2 characters"),
-  requirements: z.string().min(10, "Requirements must be at least 10 characters"),
+  title: z.string().min(5, "Заголовок должен содержать не менее 5 символов"),
+  description: z.string().min(20, "Описание должно быть не менее 20 символов"),
+  companyName: z.string().min(2, "Название компании должно быть не менее 2 символов"),
+  requirements: z.string().min(10, "Требования должны быть не менее 10 символов"),
   prizes: z.string().optional(),
 });
 
@@ -137,13 +137,13 @@ const ManageHackathon = () => {
         ]);
         
         setJuryMembers([
-          { id: "j1", name: "John Expert", email: "john@example.com", expertise: "Blockchain" },
-          { id: "j2", name: "Anna Judge", email: "anna@example.com", expertise: "AI" }
+          { id: "j1", name: "Иван Иванов", email: "john@example.com", expertise: "Blockchain" },
+          { id: "j2", name: "Анна Смирнова", email: "anna@example.com", expertise: "AI" }
         ]);
       } else {
         // Hackathon not found
         navigate("/admin/hackathons");
-        toast.error("Hackathon not found");
+        toast.error("Хакатон не найден");
       }
     }
   }, [id, getHackathonById]);
@@ -199,9 +199,9 @@ const ManageHackathon = () => {
   const addJuryMember = () => {
     const newJury = {
       id: `jury-${Date.now()}`,
-      name: "New Jury Member",
+      name: "Вася Васильев",
       email: "jury@example.com",
-      expertise: "General"
+      expertise: "Python"
     };
     
     setJuryMembers([...juryMembers, newJury]);

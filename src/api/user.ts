@@ -6,12 +6,10 @@ export const registerUser = async ({
                                        password,
                                        fullName,
                                        email,
-                                       role,
                                    }: {
     password: string;
     fullName: string;
     email: string;
-    role: string;
 }): Promise<AirtableUser> => {
     console.log("AAAWJDKHJAJKWDNKJAWD")
     const existing = await findUserByEmail(email);

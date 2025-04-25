@@ -14,7 +14,6 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [role, setRole] = useState<UserRole>("participant");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register } = useAuth();
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ export default function Register() {
     e.preventDefault();
     try {
       setIsSubmitting(true);
-      await register(email, password, name, role);
+      await register(email, password, name);
       toast({
         title: "Успешно зарегистрирован",
       });
@@ -97,25 +96,6 @@ export default function Register() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium">
-                  Тип аккаунта
-                </label>
-                <RadioGroup 
-                  defaultValue="participant" 
-                  value={role}
-                  onValueChange={(value) => setRole(value as UserRole)}
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="participant" id="participant" />
-                    <Label htmlFor="participant">Участник</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="admin" id="admin" />
-                    <Label htmlFor="admin">Администратор</Label>
-                  </div>
-                </RadioGroup>
               </div>
             </CardContent>
             <CardFooter className="flex-col space-y-4">

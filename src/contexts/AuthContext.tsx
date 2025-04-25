@@ -1,11 +1,13 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { User, UserRole } from "@/types";
+import { registerUser } from "@/api/user.ts";
+import { mapAirtableUserToUser } from "@/types/mappers.ts";
 
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, name: string, role: UserRole) => Promise<void>;
+  register: (email: string, password: string, name: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -55,8 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (!user) {
         throw new Error("Invalid email or password");
       }
-      
-      // In a real app, you would validate the password here
+
       
       // Save user to state and localStorage
       setUser(user);
@@ -69,25 +70,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const register = async (email: string, password: string, name: string, role: UserRole) => {
     setIsLoading(true);
     try {
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      
-      // Check if user already exists
-      if (mockUsers.some(u => u.email === email)) {
-        throw new Error("User with this email already exists");
-      }
-      
-      // Create new user (in a real app, this would be saved to a database)
-      const newUser: User = {
-        id: `user-${Date.now()}`,
+      const newUser = await registerUser({
+        password,
+        fullName: name,
         email,
-        name,
-        role,
-        avatar: "",
-      };
-      
-      // Save user to state and localStorage
-      setUser(newUser);
+      })
+
+      setUser(mapAirtableUserToUser(newUser));
       localStorage.setItem("hackathonUser", JSON.stringify(newUser));
     } finally {
       setIsLoading(false);

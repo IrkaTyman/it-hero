@@ -16,15 +16,14 @@ export default function NotFound() {
       <div className="text-center max-w-md mx-auto px-4">
         <div className="mb-6">
           <div className="text-8xl font-bold text-gradient">404</div>
-          <div className="text-xl mt-2 mb-6">Page Not Found</div>
+          <div className="text-xl mt-2 mb-6">Страница не найдена</div>
           <p className="text-muted-foreground mb-8">
-            The page you are looking for might have been removed, had its name changed,
-            or is temporarily unavailable.
+            Страница, которую вы ищете, не существует. Попробуйте вернуться на главную страницу.
           </p>
           <Button asChild>
             <Link to="/">
               <Home className="mr-2 h-4 w-4" />
-              Back to Home
+             Главная
             </Link>
           </Button>
         </div>

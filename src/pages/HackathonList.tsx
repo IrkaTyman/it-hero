@@ -26,8 +26,7 @@ export default function HackathonList() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Hackathons</h1>
-        <p className="text-muted-foreground">Browse and join upcoming hackathons</p>
+        <h1 className="text-3xl font-bold mb-2">Хакатоны</h1>
       </div>
 
       <div className="relative">
@@ -62,8 +61,7 @@ export default function HackathonList() {
             ) : (
               <div className="col-span-full text-center py-12">
                 <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-medium">No upcoming hackathons</h3>
-                <p className="text-muted-foreground">Check back later for new events</p>
+                <h3 className="text-lg font-medium">Нет будущих хакатонов</h3>
               </div>
             )}
           </div>
@@ -78,8 +76,7 @@ export default function HackathonList() {
             ) : (
               <div className="col-span-full text-center py-12">
                 <Clock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-medium">No active hackathons</h3>
-                <p className="text-muted-foreground">There are no ongoing hackathons right now</p>
+                <h3 className="text-lg font-medium">Нет текущих хакатонов</h3>
               </div>
             )}
           </div>
@@ -94,8 +91,7 @@ export default function HackathonList() {
             ) : (
               <div className="col-span-full text-center py-12">
                 <Calendar className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-medium">No completed hackathons</h3>
-                <p className="text-muted-foreground">Past hackathon results will appear here</p>
+                <h3 className="text-lg font-medium">Нет завершенны хакатонов</h3>
               </div>
             )}
           </div>
@@ -109,11 +105,11 @@ function HackathonCard({ hackathon }) {
   const getStatusBadge = (status) => {
     switch (status) {
       case "upcoming":
-        return <Badge variant="outline">Upcoming</Badge>;
+        return <Badge variant="outline">Будущие</Badge>;
       case "active":
-        return <Badge className="bg-primary">Active</Badge>;
+        return <Badge className="bg-primary">Текущие</Badge>;
       case "completed":
-        return <Badge variant="secondary">Completed</Badge>;
+        return <Badge variant="secondary">Прошедшие</Badge>;
       default:
         return null;
     }
@@ -153,7 +149,7 @@ function HackathonCard({ hackathon }) {
       </CardContent>
       <CardFooter className="p-4 pt-0">
         <Button asChild className="w-full">
-          <Link to={`/hackathons/${hackathon.id}`}>View Details</Link>
+          <Link to={`/hackathons/${hackathon.id}`}>Подробно</Link>
         </Button>
       </CardFooter>
     </Card>

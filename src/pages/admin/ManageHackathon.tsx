@@ -148,13 +148,11 @@ const ManageHackathon = () => {
     }
   }, [id, getHackathonById]);
 
-  // Handle form submission
+
   const onSubmit = (data) => {
-    console.log("Form data:", data);
+    console.log("Данные формы:", data);
     
-    // Here we would save the hackathon data through an API call
-    // For this demo, we'll just show a success toast
-    toast.success(isNewHackathon ? "Hackathon created successfully!" : "Hackathon updated successfully!");
+    toast.success(isNewHackathon ? "Хакатон создан!" : "Хакатон обновлен!");
     
     if (isNewHackathon) {
       navigate("/admin/hackathons");
@@ -166,21 +164,21 @@ const ManageHackathon = () => {
     // Demo function - would open a form to add a challenge
     const newChallenge = {
       id: `challenge-${Date.now()}`,
-      title: "New Challenge",
-      description: "Description for the new challenge",
+      title: "Новое задание",
+      description: "Описание задания",
       hackathonId: id || "new",
-      companyName: "Company Name",
-      requirements: "Challenge requirements"
+      companyName: "Название команды",
+      requirements: "Задания"
     };
     
     setHackathonChallenges([...hackathonChallenges, newChallenge]);
-    toast.success("Challenge added!");
+    toast.success("Кейс добавлен!");
   };
 
   // Remove a challenge
   const removeChallenge = (challengeId) => {
     setHackathonChallenges(hackathonChallenges.filter(c => c.id !== challengeId));
-    toast.success("Challenge removed!");
+    toast.success("Кейс удален!");
   };
 
   // Add new submission type
@@ -194,7 +192,7 @@ const ManageHackathon = () => {
     };
     
     setSubmissionTypes([...submissionTypes, newSubmission]);
-    toast.success("Submission type added!");
+    toast.success("Тип задания добавлен!");
   };
 
   // Add jury member
@@ -207,13 +205,13 @@ const ManageHackathon = () => {
     };
     
     setJuryMembers([...juryMembers, newJury]);
-    toast.success("Jury member added!");
+    toast.success("Член жюри добавлен!");
   };
 
   // Remove a team
   const removeTeam = (teamId) => {
     setHackathonTeams(hackathonTeams.filter(t => t.id !== teamId));
-    toast.success("Team removed from hackathon!");
+    toast.success("Команда удалена с хакатона!");
   };
 
   return (
@@ -223,18 +221,18 @@ const ManageHackathon = () => {
           {isNewHackathon ? "Create New Hackathon" : "Edit Hackathon"}
         </h1>
         <Button onClick={() => navigate("/admin/hackathons")}>
-          Back to Hackathons
+         К хакатонам
         </Button>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid grid-cols-6 w-full">
-          <TabsTrigger value="details">Details</TabsTrigger>
-          <TabsTrigger value="challenges">Challenges</TabsTrigger>
-          <TabsTrigger value="teams">Teams</TabsTrigger>
-          <TabsTrigger value="submissions">Submissions</TabsTrigger>
-          <TabsTrigger value="jury">Jury</TabsTrigger>
-          <TabsTrigger value="evaluations">Evaluations</TabsTrigger>
+          <TabsTrigger value="details">Подробности</TabsTrigger>
+          <TabsTrigger value="challenges">Кейсы</TabsTrigger>
+          <TabsTrigger value="teams">Команды</TabsTrigger>
+          <TabsTrigger value="submissions">Задания</TabsTrigger>
+          <TabsTrigger value="jury">Жюри</TabsTrigger>
+          <TabsTrigger value="evaluations">Оценки</TabsTrigger>
         </TabsList>
 
         {/* Details Tab */}
@@ -247,7 +245,7 @@ const ManageHackathon = () => {
                   name="title"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Hackathon Title</FormLabel>
+                      <FormLabel>Название</FormLabel>
                       <FormControl>
                         <Input placeholder="Enter hackathon title" {...field} />
                       </FormControl>
@@ -275,7 +273,7 @@ const ManageHackathon = () => {
                   name="startDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Start Date</FormLabel>
+                      <FormLabel>Дата начала</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -289,7 +287,7 @@ const ManageHackathon = () => {
                               {field.value ? (
                                 format(field.value, "PPP")
                               ) : (
-                                <span>Pick a date</span>
+                                <span>Выбрать дату</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -315,7 +313,7 @@ const ManageHackathon = () => {
                   name="endDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>End Date</FormLabel>
+                      <FormLabel>Дата завершения</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -329,7 +327,7 @@ const ManageHackathon = () => {
                               {field.value ? (
                                 format(field.value, "PPP")
                               ) : (
-                                <span>Pick a date</span>
+                                <span>Выбрать дату</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -355,7 +353,7 @@ const ManageHackathon = () => {
                   name="registrationStartDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Registration Start Date</FormLabel>
+                      <FormLabel>Дата начала регистрации</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -369,7 +367,7 @@ const ManageHackathon = () => {
                               {field.value ? (
                                 format(field.value, "PPP")
                               ) : (
-                                <span>Pick a date</span>
+                                <span>Выбрать дату</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -395,7 +393,7 @@ const ManageHackathon = () => {
                   name="registrationEndDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Registration End Date</FormLabel>
+                      <FormLabel>Дата завершения регистрации</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -409,7 +407,7 @@ const ManageHackathon = () => {
                               {field.value ? (
                                 format(field.value, "PPP")
                               ) : (
-                                <span>Pick a date</span>
+                                <span>Выбрать дату</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -435,7 +433,7 @@ const ManageHackathon = () => {
                   name="status"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Status</FormLabel>
+                      <FormLabel>Статус</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -443,9 +441,9 @@ const ManageHackathon = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="upcoming">Upcoming</SelectItem>
-                          <SelectItem value="active">Active</SelectItem>
-                          <SelectItem value="completed">Completed</SelectItem>
+                          <SelectItem value="upcoming">Будущий</SelectItem>
+                          <SelectItem value="active">Текущий</SelectItem>
+                          <SelectItem value="completed">Прошедший</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -459,7 +457,7 @@ const ManageHackathon = () => {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Description</FormLabel>
+                    <FormLabel>Описание</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Enter hackathon description"
@@ -485,7 +483,7 @@ const ManageHackathon = () => {
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Challenges</h2>
             <Button onClick={addChallenge} className="flex items-center gap-2">
-              <Plus size={16} /> Add Challenge
+              <Plus size={16} /> Добавить кейсы
             </Button>
           </div>
 
@@ -518,7 +516,7 @@ const ManageHackathon = () => {
               ))
             ) : (
               <p className="text-muted-foreground col-span-2">
-                No challenges added yet. Add a challenge to get started.
+                Сейчас нет кейсов. Добавьте кейсы, чтобы провести хакатон.
               </p>
             )}
           </div>
@@ -527,9 +525,9 @@ const ManageHackathon = () => {
         {/* Teams Tab */}
         <TabsContent value="teams" className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Participating Teams</h2>
+            <h2 className="text-xl font-semibold">Команды</h2>
             <div className="text-sm text-muted-foreground">
-              {hackathonTeams.length} teams registered
+              {hackathonTeams.length} команд зарегистрировано
             </div>
           </div>
 
@@ -548,7 +546,7 @@ const ManageHackathon = () => {
                       onClick={() => removeTeam(team.id)}
                       className="text-destructive"
                     >
-                      <Trash size={16} className="mr-2" /> Remove
+                      <Trash size={16} className="mr-2" /> Удалить
                     </Button>
                   </CardHeader>
                   <CardContent>
@@ -559,7 +557,7 @@ const ManageHackathon = () => {
                       <div className="text-sm">{team.description}</div>
                       {team.projectId && (
                         <Badge variant="outline" className="bg-primary/10">
-                          Project Submitted
+                          Проект принят
                         </Badge>
                       )}
                     </div>
@@ -568,7 +566,7 @@ const ManageHackathon = () => {
               ))
             ) : (
               <p className="text-muted-foreground">
-                No teams have registered for this hackathon yet.
+                Сейчас никакие команды не зарегистрированы.
               </p>
             )}
           </div>
@@ -577,9 +575,9 @@ const ManageHackathon = () => {
         {/* Submissions Tab */}
         <TabsContent value="submissions" className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Submission Requirements</h2>
+            <h2 className="text-xl font-semibold">Задания</h2>
             <Button onClick={addSubmissionType} className="flex items-center gap-2">
-              <Plus size={16} /> Add Submission Type
+              <Plus size={16} /> Добавить задание
             </Button>
           </div>
 
@@ -600,7 +598,7 @@ const ManageHackathon = () => {
                     <div className="space-y-2">
                       <div className="text-sm flex items-center gap-1">
                         <CalendarIcon size={14} />
-                        <span>Deadline: {format(new Date(submission.deadline), "PPP")}</span>
+                        <span>Дедлайн: {format(new Date(submission.deadline), "PPP")}</span>
                       </div>
                     </div>
                   </CardContent>
@@ -608,7 +606,7 @@ const ManageHackathon = () => {
               ))
             ) : (
               <p className="text-muted-foreground col-span-2">
-                No submission types defined yet. Add a submission type to get started.
+               Сейчас задания не добавлены. Добавьте задания, чтобы провести хакатон.
               </p>
             )}
           </div>
@@ -617,9 +615,9 @@ const ManageHackathon = () => {
         {/* Jury Tab */}
         <TabsContent value="jury" className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Jury Members</h2>
+            <h2 className="text-xl font-semibold">Жюри</h2>
             <Button onClick={addJuryMember} className="flex items-center gap-2">
-              <Plus size={16} /> Add Jury Member
+              <Plus size={16} /> Добавить жюри
             </Button>
           </div>
 
@@ -650,7 +648,7 @@ const ManageHackathon = () => {
               ))
             ) : (
               <p className="text-muted-foreground col-span-2">
-                No jury members added yet. Add jury members to evaluate projects.
+               Сейчас нет жюри. Добавьте жюри, чтобы провести хакатон.
               </p>
             )}
           </div>
@@ -659,7 +657,7 @@ const ManageHackathon = () => {
         {/* Evaluations Tab */}
         <TabsContent value="evaluations" className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Team Evaluations</h2>
+            <h2 className="text-xl font-semibold">Оценки команд</h2>
           </div>
 
           <div className="space-y-4">
@@ -672,7 +670,7 @@ const ManageHackathon = () => {
                     </CardTitle>
                     <div className="flex items-center gap-2">
                       <Button variant="outline" size="sm" className="flex items-center gap-1">
-                        <Award size={16} /> Rate
+                        <Award size={16} /> Оценить
                       </Button>
                     </div>
                   </CardHeader>
@@ -681,15 +679,15 @@ const ManageHackathon = () => {
                       {team.projectId ? (
                         <div className="flex flex-col gap-1">
                           <div className="text-sm font-medium">
-                            Project Submission: <span className="text-primary">Completed</span>
+                            Статус проекта: <span className="text-primary">Принят</span>
                           </div>
                           <div className="text-sm text-muted-foreground">
-                            Rating: Not rated yet
+                            Рейтинг: Пока не оценено
                           </div>
                         </div>
                       ) : (
                         <div className="text-sm text-muted-foreground">
-                          No project submission yet
+                          Нет сданный решений
                         </div>
                       )}
                     </div>
@@ -698,7 +696,7 @@ const ManageHackathon = () => {
               ))
             ) : (
               <p className="text-muted-foreground">
-                No teams have registered for this hackathon yet.
+                Сейчас нет зарегистрировавшихся команд.
               </p>
             )}
           </div>

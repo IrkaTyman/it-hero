@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, FileText, Link as LinkIcon, Check, X } from "lucide-react";
+import { Clock, Link as LinkIcon, Check, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { SubmissionType } from "@/types";
 
@@ -40,8 +40,8 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
       });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to submit. Please try again.",
+        title: "Ошибка",
+        description: "Ошибка при отправки. Повторите попытку позже.",
         variant: "destructive",
       });
     } finally {
@@ -55,22 +55,22 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
         <div className="flex items-center justify-between">
           <div>
             <CardTitle>{type.charAt(0).toUpperCase() + type.slice(1)} Submission</CardTitle>
-            <CardDescription>Submit your {type} URL</CardDescription>
+            <CardDescription>Подтвердите ссылку на {type}</CardDescription>
           </div>
           {submitted ? (
             <Badge variant="outline" className="bg-green-500/20 text-green-500">
               <Check className="mr-1 h-3 w-3" />
-              Submitted
+              Сдано
             </Badge>
           ) : isExpired ? (
             <Badge variant="destructive" className="bg-destructive/20">
               <X className="mr-1 h-3 w-3" />
-              Expired
+              Истекло
             </Badge>
           ) : (
             <Badge variant="outline" className="border-primary/30 text-primary">
               <Clock className="mr-1 h-3 w-3" />
-              Due {deadlineDate.toLocaleDateString()}
+              Просрочено {deadlineDate.toLocaleDateString()}
             </Badge>
           )}
         </div>
@@ -84,7 +84,7 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
             className="flex items-center gap-2 text-primary hover:underline"
           >
             <LinkIcon className="h-4 w-4" />
-            View Submission
+            Посмотреть задания
           </a>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -103,7 +103,7 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
       </CardContent>
       {submitted && (
         <CardFooter className="text-sm text-muted-foreground">
-          Submitted on {new Date(submitted.submittedAt).toLocaleString()}
+          Сдано {new Date(submitted.submittedAt).toLocaleString()}
         </CardFooter>
       )}
     </Card>

@@ -21,14 +21,13 @@ export default function Login() {
       setIsSubmitting(true);
       await login(email, password);
       toast({
-        title: "Login successful",
-        description: "You have been logged in successfully.",
+        title: "Успешно вошли в систему",
       });
       navigate("/");
     } catch (error) {
       toast({
-        title: "Login failed",
-        description: error instanceof Error ? error.message : "An unknown error occurred",
+        title: "Ошибка",
+        description: error instanceof Error ? error.message : "Что-то пошло не так, попробуйте позже",
         variant: "destructive",
       });
     } finally {
@@ -45,20 +44,20 @@ export default function Login() {
               H
             </div>
           </div>
-          <h1 className="text-3xl font-bold mb-1">Welcome to HackFlow</h1>
-          <p className="text-muted-foreground">Sign in to manage hackathons</p>
+          <h1 className="text-3xl font-bold mb-1">Добро пожаловать в HackFlow</h1>
+          <p className="text-muted-foreground">Войди для управления своими хакатонами</p>
         </div>
 
         <Card className="border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Sign In</CardTitle>
-            <CardDescription>Enter your credentials to continue</CardDescription>
+            <CardTitle>Войти</CardTitle>
+            <CardDescription>Введите данные для продолжения</CardDescription>
           </CardHeader>
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
-                  Email
+                  Почта
                 </label>
                 <Input
                   id="email"
@@ -72,7 +71,7 @@ export default function Login() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="password" className="text-sm font-medium">
-                  Password
+                  Пароль
                 </label>
                 <Input
                   id="password"
@@ -86,7 +85,7 @@ export default function Login() {
               </div>
               <div className="text-right text-sm">
                 <Link to="/forgot-password" className="text-primary hover:underline">
-                  Forgot password?
+                  Забыли пароль?
                 </Link>
               </div>
             </CardContent>
@@ -99,9 +98,9 @@ export default function Login() {
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
               <p className="text-center text-sm">
-                Don't have an account?{" "}
+                У вас нет аккаунта?{" "}
                 <Link to="/register" className="text-primary hover:underline">
-                  Sign up
+                  Зарегистрироваться
                 </Link>
               </p>
             </CardFooter>
@@ -109,9 +108,9 @@ export default function Login() {
         </Card>
 
         <div className="text-center mt-6 text-sm text-muted-foreground">
-          <p>For demo purposes, use:</p>
-          <p>Admin: admin@example.com / password</p>
-          <p>User: user@example.com / password</p>
+          <p>Для демо доступов используйте:</p>
+          <p>Админ: admin@example.com / password</p>
+          <p>Участник: user@example.com / password</p>
         </div>
       </div>
     </div>

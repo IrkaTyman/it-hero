@@ -21,32 +21,32 @@ export default function TeamSubmissions() {
   const hackathonProjects = projects.filter(project => project.hackathonId === hackathonId);
 
   if (!hackathon) {
-    return <div>Hackathon not found</div>;
+    return <div>Хакатон не найден</div>;
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Team Submissions</h1>
+        <h1 className="text-3xl font-bold mb-2">Решения команд</h1>
         <p className="text-muted-foreground">
-          Review team submissions for {hackathon.title}
+          Проверка решений команд в хакатоне {hackathon.title}
         </p>
       </div>
 
       <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle>All Submissions</CardTitle>
-          <CardDescription>View and manage team submissions</CardDescription>
+          <CardTitle>Все решения</CardTitle>
+          <CardDescription>Посмотреть все решения команд</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Team Name</TableHead>
-                <TableHead>Repository</TableHead>
-                <TableHead>Project</TableHead>
-                <TableHead>Presentation</TableHead>
-                <TableHead>Submission Date</TableHead>
+                <TableHead>Название команды</TableHead>
+                <TableHead>Репозиторий</TableHead>
+                <TableHead>Проект</TableHead>
+                <TableHead>Презентация</TableHead>
+                <TableHead>Дата сдачи</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -64,10 +64,10 @@ export default function TeamSubmissions() {
                           className="flex items-center gap-1 text-primary hover:underline"
                         >
                           <LinkIcon className="h-4 w-4" />
-                          View
+                          Смотреть
                         </a>
                       ) : (
-                        <span className="text-muted-foreground">Not submitted</span>
+                        <span className="text-muted-foreground">Не сдано</span>
                       )}
                     </TableCell>
                     <TableCell>
@@ -79,10 +79,10 @@ export default function TeamSubmissions() {
                           className="flex items-center gap-1 text-primary hover:underline"
                         >
                           <LinkIcon className="h-4 w-4" />
-                          View
+                          Смотреть
                         </a>
                       ) : (
-                        <span className="text-muted-foreground">Not submitted</span>
+                        <span className="text-muted-foreground">Не сдано</span>
                       )}
                     </TableCell>
                     <TableCell>
@@ -94,10 +94,10 @@ export default function TeamSubmissions() {
                           className="flex items-center gap-1 text-primary hover:underline"
                         >
                           <LinkIcon className="h-4 w-4" />
-                          View
+                          Смотреть
                         </a>
                       ) : (
-                        <span className="text-muted-foreground">Not submitted</span>
+                        <span className="text-muted-foreground">Не сдано</span>
                       )}
                     </TableCell>
                     <TableCell>

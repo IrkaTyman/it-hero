@@ -29,13 +29,11 @@ export default function TeamManagement() {
       if (!user || !team) return;
       await leaveTeam(team.id, user.id);
       toast({
-        title: "Left team",
-        description: "You have successfully left the team.",
+        title: "Успешно покинули команду",
       });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to leave the team. Please try again.",
+        title: "Произошла ошибка",
         variant: "destructive",
       });
     }
@@ -45,21 +43,21 @@ export default function TeamManagement() {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Team Management</h1>
-          <p className="text-muted-foreground">Create or join a team to participate in hackathons</p>
+          <h1 className="text-3xl font-bold mb-2">Управление командой</h1>
+          <p className="text-muted-foreground">Создайте или присоединитесь к команде для участия в хакатонах</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Create a New Team</CardTitle>
-              <CardDescription>Start your own team for a hackathon</CardDescription>
+              <CardTitle>Создать</CardTitle>
+              <CardDescription>Создайте новую команду и пригласите участников</CardDescription>
             </CardHeader>
             <CardContent className="text-center py-6">
               <div className="flex justify-center mb-4">
                 <Users className="h-12 w-12 text-primary" />
               </div>
-              <p className="mb-6">Form a team and invite others to join you</p>
+              <p className="mb-6">Заполните форму для создания команды</p>
             </CardContent>
             <CardFooter>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -75,33 +73,33 @@ export default function TeamManagement() {
 
           <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Join an Existing Team</CardTitle>
-              <CardDescription>Join a team using an invite code</CardDescription>
+              <CardTitle>Присоединиться к команде</CardTitle>
+              <CardDescription>Присоединиться к команде по коду</CardDescription>
             </CardHeader>
             <CardContent className="text-center py-6">
               <div className="flex justify-center mb-4">
                 <LinkIcon className="h-12 w-12 text-primary" />
               </div>
-              <p className="mb-6">Enter a team code to join an existing team</p>
+              <p className="mb-6">Введите пригласительный код</p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full">Join with Code</Button>
+              <Button variant="outline" className="w-full">Присоединиться</Button>
             </CardFooter>
           </Card>
 
           <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Find Teammates</CardTitle>
-              <CardDescription>Looking for team members?</CardDescription>
+              <CardTitle>Найти участников в команду</CardTitle>
+              <CardDescription>Изучить список желающих вступить в команду</CardDescription>
             </CardHeader>
             <CardContent className="text-center py-6">
               <div className="flex justify-center mb-4">
                 <User className="h-12 w-12 text-primary" />
               </div>
-              <p className="mb-6">Connect with other participants looking for teams</p>
+              <p className="mb-6">Обьединиться с другими участниками</p>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full">Find Teammates</Button>
+              <Button variant="outline" className="w-full">Найти</Button>
             </CardFooter>
           </Card>
         </div>
@@ -128,13 +126,11 @@ export default function TeamManagement() {
       });
       
       toast({
-        title: "Success",
-        description: `Your ${type} has been submitted successfully.`,
+        title: "Успешно",
       });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to submit. Please try again.",
+        title: "Произошла ошибка",
         variant: "destructive",
       });
     }
@@ -158,10 +154,10 @@ export default function TeamManagement() {
         <p className="text-muted-foreground">
           {hackathon ? (
             <>
-              Participating in <Link to={`/hackathons/${hackathon.id}`} className="text-primary hover:underline">{hackathon.title}</Link>
+              Проходите <Link to={`/hackathons/${hackathon.id}`} className="text-primary hover:underline">{hackathon.title}</Link>
             </>
           ) : (
-            "Manage your team and project"
+            "Управлять командой и проектами"
           )}
         </p>
       </div>
@@ -170,42 +166,42 @@ export default function TeamManagement() {
         <div className="md:col-span-2 space-y-6">
           <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle>Team Details</CardTitle>
-              <CardDescription>View and edit your team information</CardDescription>
+              <CardTitle>О команде</CardTitle>
+              <CardDescription>Изучить и измени информацию о команде</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm font-medium">Team Name</label>
+                <label className="text-sm font-medium">Название</label>
                 <Input value={team.name} disabled />
               </div>
               <div>
-                <label className="text-sm font-medium">Description</label>
+                <label className="text-sm font-medium">Описание</label>
                 <Textarea value={team.description || ""} disabled />
               </div>
               <div>
-                <label className="text-sm font-medium">Team Code</label>
+                <label className="text-sm font-medium">Код</label>
                 <div className="flex items-center gap-2">
                   <Input value={`TEAM-${team.id.substring(0, 6).toUpperCase()}`} disabled />
-                  <Button size="sm" variant="outline">Copy</Button>
+                  <Button size="sm" variant="outline">Скопировать</Button>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Share this code with others to invite them to your team</p>
+                <p className="text-xs text-muted-foreground mt-1">Поделитесь этим кодом с другими участниками</p>
               </div>
             </CardContent>
             <CardFooter className="flex justify-between">
-              <Button variant="outline">Edit Team</Button>
-              <Button variant="destructive" onClick={handleLeaveTeam}>Leave Team</Button>
+              <Button variant="outline">Изменить</Button>
+              <Button variant="destructive" onClick={handleLeaveTeam}>Покинуть</Button>
             </CardFooter>
           </Card>
 
           <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
-                <CardTitle>Project Submission</CardTitle>
-                <CardDescription>Submit your hackathon project</CardDescription>
+                <CardTitle>Проекты</CardTitle>
+                <CardDescription>Подтвердите свои проекты</CardDescription>
               </div>
               <Button>
                 <PlusCircle className="h-4 w-4 mr-2" />
-                New Submission
+                Новое решение
               </Button>
             </CardHeader>
             <CardContent>
@@ -216,8 +212,8 @@ export default function TeamManagement() {
                       <div className="flex items-center">
                         <FileText className="h-10 w-10 text-primary mr-4" />
                         <div>
-                          <h3 className="font-medium">Project Title</h3>
-                          <p className="text-sm text-muted-foreground">Submitted on {new Date().toLocaleDateString()}</p>
+                          <h3 className="font-medium">Название проекта</h3>
+                          <p className="text-sm text-muted-foreground">Сдан {new Date().toLocaleDateString()}</p>
                         </div>
                       </div>
                       <Badge>Submitted</Badge>
@@ -225,11 +221,11 @@ export default function TeamManagement() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-sm font-medium">GitHub Repository</label>
+                      <label className="text-sm font-medium">GitHub</label>
                       <Input value="https://github.com/username/project" disabled />
                     </div>
                     <div>
-                      <label className="text-sm font-medium">Demo URL</label>
+                      <label className="text-sm font-medium">Демо URL</label>
                       <Input value="https://project-demo.example.com" disabled />
                     </div>
                   </div>
@@ -237,8 +233,8 @@ export default function TeamManagement() {
               ) : (
                 <div className="text-center py-8">
                   <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-medium mb-2">No project submitted yet</h3>
-                  <p className="text-muted-foreground mb-4">Submit your project before the deadline</p>
+                  <h3 className="text-lg font-medium mb-2">Не сданы проекты</h3>
+                  <p className="text-muted-foreground mb-4">Сдайте проект до дедлайна</p>
                   <Button>Create Submission</Button>
                 </div>
               )}
@@ -247,7 +243,7 @@ export default function TeamManagement() {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold">Submissions</h2>
+          <h2 className="text-2xl font-semibold">Решения</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <SubmissionCard
               type="repository"
@@ -274,8 +270,8 @@ export default function TeamManagement() {
       <div className="space-y-6">
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Team Members</CardTitle>
-            <CardDescription>{team.memberIds.length} members</CardDescription>
+            <CardTitle>Участники команды</CardTitle>
+            <CardDescription>{team.memberIds.length} участников</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -289,15 +285,15 @@ export default function TeamManagement() {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="font-medium">{index === 0 ? "You" : `Member ${index + 1}`}</p>
+                      <p className="font-medium">{index === 0 ? "Вы" : `Участник ${index + 1}`}</p>
                       {memberId === team.createdBy && (
-                        <span className="text-xs text-muted-foreground">Team Leader</span>
+                        <span className="text-xs text-muted-foreground">Тимлид</span>
                       )}
                     </div>
                   </div>
                   {memberId === team.createdBy && (
                     <Badge variant="outline" className="border-primary/30 text-primary">
-                      Leader
+                      Лидер
                     </Badge>
                   )}
                 </div>
@@ -307,15 +303,15 @@ export default function TeamManagement() {
           <CardFooter>
             <Button className="w-full">
               <User className="mr-2 h-4 w-4" />
-              Invite Member
+              Пригласить
             </Button>
           </CardFooter>
         </Card>
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Team Checklist</CardTitle>
-            <CardDescription>Track your progress</CardDescription>
+            <CardTitle>Чеклист</CardTitle>
+            <CardDescription>Отслеживайте прогресс</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -384,15 +380,13 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
       });
       
       toast({
-        title: "Team created",
-        description: "Your team has been created successfully.",
+        title: "Команда создана",
       });
       
       onClose();
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to create team. Please try again.",
+        title: "Произошла ошибка",
         variant: "destructive",
       });
     } finally {
@@ -403,15 +397,13 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
   return (
     <>
       <DialogHeader>
-        <DialogTitle>Create a New Team</DialogTitle>
-        <DialogDescription>
-          Fill out the form below to create your hackathon team
-        </DialogDescription>
+        <DialogTitle>Создайте новую команду</DialogTitle>
+
       </DialogHeader>
       <form onSubmit={handleSubmit}>
         <div className="space-y-4 py-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Team Name</label>
+            <label className="text-sm font-medium">Название</label>
             <Input
               name="name"
               value={formData.name}
@@ -421,7 +413,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Description</label>
+            <label className="text-sm font-medium">Описание</label>
             <Textarea
               name="description"
               value={formData.description}
@@ -430,7 +422,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Select Hackathon</label>
+            <label className="text-sm font-medium">Хакатоны</label>
             <Select
               value={formData.hackathonId}
               onValueChange={handleSelectChange}
@@ -448,7 +440,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
                   ))
                 ) : (
                   <SelectItem value="none" disabled>
-                    No hackathons available
+                    Нет доступных хакатонов
                   </SelectItem>
                 )}
               </SelectContent>
@@ -457,7 +449,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
         </div>
         <DialogFooter>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            Отменить
           </Button>
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? "Creating..." : "Create Team"}

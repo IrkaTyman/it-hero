@@ -58,15 +58,13 @@ export default function Profile() {
       });
       
       toast({
-        title: "Profile updated",
-        description: "Your profile has been successfully updated.",
+        title: "Профиль обновлен",
       });
       
       setIsEditing(false);
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to update profile. Please try again.",
+        title: "Произршла ошибка",
         variant: "destructive",
       });
     }
@@ -75,7 +73,7 @@ export default function Profile() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Profile</h1>
+        <h1 className="text-3xl font-bold">Профиль</h1>
         <Button onClick={() => setIsEditing(!isEditing)}>
           {isEditing ? "Cancel" : "Edit Profile"}
         </Button>
@@ -96,7 +94,7 @@ export default function Profile() {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-sm font-medium">Full Name</label>
+                <label className="text-sm font-medium">ФИО</label>
                 <Input
                   name="fullName"
                   value={formData.fullName}
@@ -106,7 +104,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <label className="text-sm font-medium">Bio</label>
+                <label className="text-sm font-medium">О себе</label>
                 <Textarea
                   name="bio"
                   value={formData.bio}
@@ -117,7 +115,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <label className="text-sm font-medium">Skills</label>
+                <label className="text-sm font-medium">Навыки</label>
                 <div className="flex flex-wrap gap-2 mb-2">
                   {formData.skills.map((skill) => (
                     <Badge
@@ -161,18 +159,7 @@ export default function Profile() {
               </div>
 
               <div>
-                <label className="text-sm font-medium">LinkedIn</label>
-                <Input
-                  name="linkedin"
-                  value={formData.linkedin}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  placeholder="https://linkedin.com/in/username"
-                />
-              </div>
-
-              <div>
-                <label className="text-sm font-medium">Portfolio</label>
+                <label className="text-sm font-medium">Портфолио</label>
                 <Input
                   name="portfolio"
                   value={formData.portfolio}
@@ -183,7 +170,7 @@ export default function Profile() {
               </div>
 
               {isEditing && (
-                <Button type="submit" className="w-full">Save Changes</Button>
+                <Button type="submit" className="w-full">Сохранить изменения</Button>
               )}
             </form>
           </CardContent>

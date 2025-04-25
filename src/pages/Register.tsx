@@ -26,14 +26,13 @@ export default function Register() {
       setIsSubmitting(true);
       await register(email, password, name, role);
       toast({
-        title: "Registration successful",
-        description: "Your account has been created successfully.",
+        title: "Успешно зарегистрирован",
       });
       navigate("/");
     } catch (error) {
       toast({
-        title: "Registration failed",
-        description: error instanceof Error ? error.message : "An unknown error occurred",
+        title: "Произошла ошибка",
+        description: error instanceof Error ? error.message : "Неизвестная ошибка",
         variant: "destructive",
       });
     } finally {
@@ -50,20 +49,20 @@ export default function Register() {
               H
             </div>
           </div>
-          <h1 className="text-3xl font-bold mb-1">Create an Account</h1>
-          <p className="text-muted-foreground">Join HackFlow to participate in hackathons</p>
+          <h1 className="text-3xl font-bold mb-1">Создать аккаунт</h1>
+          <p className="text-muted-foreground">Присоединяйся HackFlow для участия в хакатонах</p>
         </div>
 
         <Card className="border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Sign Up</CardTitle>
-            <CardDescription>Enter your details to create an account</CardDescription>
+            <CardTitle>Зарегистрироваться</CardTitle>
+            <CardDescription>Введите данные для регистрации</CardDescription>
           </CardHeader>
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">
-                  Full Name
+                 ФИО
                 </label>
                 <Input
                   id="name"
@@ -75,7 +74,7 @@ export default function Register() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
-                  Email
+                  Почта
                 </label>
                 <Input
                   id="email"
@@ -88,7 +87,7 @@ export default function Register() {
               </div>
               <div className="space-y-2">
                 <label htmlFor="password" className="text-sm font-medium">
-                  Password
+                  Пароль
                 </label>
                 <Input
                   id="password"
@@ -101,7 +100,7 @@ export default function Register() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">
-                  Account Type
+                  Тип аккаунта
                 </label>
                 <RadioGroup 
                   defaultValue="participant" 
@@ -110,11 +109,11 @@ export default function Register() {
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="participant" id="participant" />
-                    <Label htmlFor="participant">Participant</Label>
+                    <Label htmlFor="participant">Участник</Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="admin" id="admin" />
-                    <Label htmlFor="admin">Administrator</Label>
+                    <Label htmlFor="admin">Администратор</Label>
                   </div>
                 </RadioGroup>
               </div>
@@ -128,9 +127,9 @@ export default function Register() {
                 {isSubmitting ? "Creating account..." : "Create Account"}
               </Button>
               <p className="text-center text-sm">
-                Already have an account?{" "}
+                Уже есть аккаунт?{" "}
                 <Link to="/login" className="text-primary hover:underline">
-                  Sign in
+                  Войти
                 </Link>
               </p>
             </CardFooter>

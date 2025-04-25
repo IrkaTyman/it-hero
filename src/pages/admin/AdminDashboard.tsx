@@ -16,8 +16,8 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
-        <p className="text-muted-foreground">Manage hackathons, teams, and challenges</p>
+        <h1 className="text-3xl font-bold mb-2">Дашборд админа</h1>
+        <p className="text-muted-foreground">Управляй хакатонами и командами</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -54,32 +54,31 @@ export default function AdminDashboard() {
       <div className="grid gap-6 md:grid-cols-2">
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Quick Actions</CardTitle>
-            <CardDescription>Common administrative tasks</CardDescription>
+            <CardTitle>Быстрые действия</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               <Button asChild className="w-full justify-between">
                 <Link to="/admin/hackathons/create">
-                  Create New Hackathon
+                  Создать новый хакатон
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" asChild className="w-full justify-between">
                 <Link to="/admin/challenges/create">
-                  Add New Challenge
+                  Добавить новый кейс
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" asChild className="w-full justify-between">
                 <Link to="/admin/teams">
-                  Manage Teams
+                  Управлять командами
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" asChild className="w-full justify-between">
                 <Link to="/admin/settings">
-                  System Settings
+                  Системные настройки
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -89,8 +88,7 @@ export default function AdminDashboard() {
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-            <CardDescription>Latest platform updates</CardDescription>
+            <CardTitle>Недавние активности</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <ActivityItem 
@@ -120,8 +118,7 @@ export default function AdminDashboard() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Upcoming Hackathons</CardTitle>
-            <CardDescription>Next events on your calendar</CardDescription>
+            <CardTitle>Будущие хакатоны</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -150,7 +147,7 @@ export default function AdminDashboard() {
                 ))}
               {hackathons.filter(h => h.status === "upcoming").length === 0 && (
                 <p className="text-center py-4 text-muted-foreground">
-                  No upcoming hackathons scheduled
+                  Хакатоны не запланированы :(
                 </p>
               )}
             </div>
@@ -159,8 +156,7 @@ export default function AdminDashboard() {
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Active Hackathons</CardTitle>
-            <CardDescription>Currently running events</CardDescription>
+            <CardTitle>Текущие хакатоны</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -176,7 +172,7 @@ export default function AdminDashboard() {
                       <div>
                         <p className="font-medium text-sm">{hackathon.title}</p>
                         <p className="text-xs text-muted-foreground">
-                          Ends on {new Date(hackathon.endDate).toLocaleDateString()}
+                          Завершается {new Date(hackathon.endDate).toLocaleDateString()}
                         </p>
                       </div>
                     </div>
@@ -189,7 +185,7 @@ export default function AdminDashboard() {
                 ))}
               {hackathons.filter(h => h.status === "active").length === 0 && (
                 <p className="text-center py-4 text-muted-foreground">
-                  No active hackathons at the moment
+                  Текущих хакатонов нет :(
                 </p>
               )}
             </div>
@@ -198,8 +194,7 @@ export default function AdminDashboard() {
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Latest Teams</CardTitle>
-            <CardDescription>Recently formed teams</CardDescription>
+            <CardTitle>Последние добавленные команды</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -212,7 +207,7 @@ export default function AdminDashboard() {
                     <div>
                       <p className="font-medium text-sm">{team.name}</p>
                       <p className="text-xs text-muted-foreground">
-                        {team.memberIds.length} members
+                        {team.memberIds.length} участника(-ов)
                       </p>
                     </div>
                   </div>
@@ -225,7 +220,7 @@ export default function AdminDashboard() {
               ))}
               {teams.length === 0 && (
                 <p className="text-center py-4 text-muted-foreground">
-                  No teams have been formed yet
+                 Команд нет
                 </p>
               )}
             </div>
@@ -257,7 +252,7 @@ function StatsCard({ title, value, icon, description, linkTo }: StatsCardProps) 
         <div className="text-2xl font-bold">{value}</div>
         <p className="text-xs text-muted-foreground">{description}</p>
         <Link to={linkTo} className="text-xs text-primary hover:underline mt-2 inline-block">
-          View details
+          Подробнее
         </Link>
       </CardContent>
     </Card>

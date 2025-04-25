@@ -17,13 +17,13 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Welcome, {user?.name}</h1>
-        <p className="text-muted-foreground">Your hackathon journey starts here</p>
+        <h1 className="text-3xl font-bold mb-2">Привет, {user?.name}!</h1>
+        <p className="text-muted-foreground">Твой пути в мир хакатонов начинается здесь</p>
       </div>
 
       {activeHackathons.length > 0 && (
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Active Hackathons</h2>
+          <h2 className="text-xl font-semibold">Текущие хакатоны</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {activeHackathons.map((hackathon) => (
               <Card key={hackathon.id} className="overflow-hidden border border-border/40 bg-card/30 backdrop-blur-sm">
@@ -40,7 +40,7 @@ export default function Dashboard() {
                       <CardTitle>{hackathon.title}</CardTitle>
                       <CardDescription className="mt-1">{hackathon.description}</CardDescription>
                     </div>
-                    <Badge className="bg-primary">Active</Badge>
+                    <Badge className="bg-primary">Текущий</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="p-4 pt-0 space-y-4">
@@ -58,7 +58,7 @@ export default function Dashboard() {
                   </div>
                   <div className="flex gap-2">
                     <Button asChild className="flex-1">
-                      <Link to={`/hackathons/${hackathon.id}`}>View Details</Link>
+                      <Link to={`/hackathons/${hackathon.id}`}>Подробно</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -71,8 +71,8 @@ export default function Dashboard() {
       <div className="grid gap-6 md:grid-cols-2">
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>My Team</CardTitle>
-            <CardDescription>Your current team information</CardDescription>
+            <CardTitle>Команда</CardTitle>
+            <CardDescription>Информация о твоей текущей команде</CardDescription>
           </CardHeader>
           <CardContent>
             {userTeam ? (
@@ -83,10 +83,10 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">{userTeam.memberIds.length} member{userTeam.memberIds.length !== 1 ? 's' : ''}</span>
+                  <span className="text-sm">{userTeam.memberIds.length} участников</span>
                 </div>
                 <Button asChild variant="outline" className="w-full">
-                  <Link to="/team">Manage Team</Link>
+                  <Link to="/team">Изменить</Link>
                 </Button>
               </div>
             ) : (
@@ -95,9 +95,9 @@ export default function Dashboard() {
                   <Users className="h-12 w-12 text-muted-foreground" />
                 </div>
                 <div>
-                  <p className="text-muted-foreground mb-4">You're not part of any team yet</p>
+                  <p className="text-muted-foreground mb-4">У тебя сейчас нет команды</p>
                   <Button asChild>
-                    <Link to="/team/create">Create a Team</Link>
+                    <Link to="/team/create">Создать команду</Link>
                   </Button>
                 </div>
               </div>
@@ -107,8 +107,8 @@ export default function Dashboard() {
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Upcoming Hackathons</CardTitle>
-            <CardDescription>Check out these upcoming events</CardDescription>
+            <CardTitle>Будущие хакатоны</CardTitle>
+            <CardDescription>Следи за новыми событиями</CardDescription>
           </CardHeader>
           <CardContent>
             {upcomingHackathons.length > 0 ? (
@@ -137,7 +137,7 @@ export default function Dashboard() {
                   </div>
                 ))}
                 <Button variant="outline" asChild className="w-full">
-                  <Link to="/hackathons">View All Hackathons</Link>
+                  <Link to="/hackathons">Смотреть все</Link>
                 </Button>
               </div>
             ) : (
@@ -145,7 +145,7 @@ export default function Dashboard() {
                 <div className="flex justify-center">
                   <Calendar className="h-12 w-12 text-muted-foreground" />
                 </div>
-                <p className="text-muted-foreground">No upcoming hackathons right now</p>
+                <p className="text-muted-foreground">Нет будущих хакатонов</p>
               </div>
             )}
           </CardContent>

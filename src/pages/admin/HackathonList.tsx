@@ -39,11 +39,11 @@ const AdminHackathonList = () => {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "upcoming":
-        return <Badge variant="outline" className="bg-blue-100 text-blue-800">Upcoming</Badge>;
+        return <Badge variant="outline" className="bg-blue-100 text-blue-800">Будущие</Badge>;
       case "active":
-        return <Badge variant="outline" className="bg-green-100 text-green-800">Active</Badge>;
+        return <Badge variant="outline" className="bg-green-100 text-green-800">Текущие</Badge>;
       case "completed":
-        return <Badge variant="outline" className="bg-gray-100 text-gray-800">Completed</Badge>;
+        return <Badge variant="outline" className="bg-gray-100 text-gray-800">Прошедшие</Badge>;
       default:
         return <Badge variant="outline">{status}</Badge>;
     }
@@ -52,18 +52,18 @@ const AdminHackathonList = () => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Manage Hackathons</h1>
+        <h1 className="text-2xl font-bold">Управление хакатонами</h1>
         <Button onClick={() => navigate("/admin/hackathons/new")} className="flex items-center gap-2">
-          <Plus size={16} /> Create New Hackathon
+          <Plus size={16} /> Создать новый
         </Button>
       </div>
 
       <Card>
         <CardHeader className="pb-2">
           <div className="flex justify-between items-center">
-            <CardTitle className="text-xl">Hackathons</CardTitle>
+            <CardTitle className="text-xl">Хакатоны</CardTitle>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Filter by status:</span>
+              <span className="text-sm text-muted-foreground">По статусу:</span>
               <Select 
                 value={statusFilter} 
                 onValueChange={setStatusFilter}
@@ -72,10 +72,10 @@ const AdminHackathonList = () => {
                   <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
-                  <SelectItem value="upcoming">Upcoming</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="completed">Completed</SelectItem>
+                  <SelectItem value="all">Все</SelectItem>
+                  <SelectItem value="upcoming">Будущие</SelectItem>
+                  <SelectItem value="active">Текущие</SelectItem>
+                  <SelectItem value="completed">Прошедшие</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -85,12 +85,12 @@ const AdminHackathonList = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Start Date</TableHead>
-                <TableHead>End Date</TableHead>
-                <TableHead>Teams</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Название</TableHead>
+                <TableHead>Статус</TableHead>
+                <TableHead>Дата начала</TableHead>
+                <TableHead>Дата завершения</TableHead>
+                <TableHead>Команды</TableHead>
+                <TableHead className="text-right">Действия</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -115,7 +115,7 @@ const AdminHackathonList = () => {
                           onClick={() => navigate(`/admin/hackathons/${hackathon.id}`)}
                           className="flex items-center gap-1"
                         >
-                          <Edit size={14} /> Edit
+                          <Edit size={14} /> Редактировать
                         </Button>
                         <Button 
                           size="sm" 
@@ -123,7 +123,7 @@ const AdminHackathonList = () => {
                           onClick={() => navigate(`/admin/hackathons/${hackathon.id}/submissions`)}
                           className="flex items-center gap-1"
                         >
-                          <Users size={14} /> Submissions
+                          <Users size={14} /> Задания
                         </Button>
                       </div>
                     </TableCell>

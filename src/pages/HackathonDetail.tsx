@@ -19,10 +19,9 @@ export default function HackathonDetail() {
     return (
       <div className="flex items-center justify-center h-[60vh]">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-2">Hackathon Not Found</h2>
-          <p className="text-muted-foreground mb-4">The hackathon you're looking for doesn't exist.</p>
+          <h2 className="text-2xl font-bold mb-2">Хакатон не найден</h2>
           <Button asChild>
-            <Link to="/hackathons">Back to Hackathons</Link>
+            <Link to="/hackathons">К хакатонам</Link>
           </Button>
         </div>
       </div>
@@ -33,7 +32,7 @@ export default function HackathonDetail() {
     <div className="space-y-6">
       <div className="flex items-center gap-2 text-muted-foreground text-sm mb-6">
         <Link to="/hackathons" className="hover:text-primary">
-          Hackathons
+          Хакатоны
         </Link>
         <span>/</span>
         <span className="text-foreground">{hackathon.title}</span>
@@ -57,14 +56,14 @@ export default function HackathonDetail() {
           <Badge className={hackathon.status === "active" ? "bg-primary" : ""}>
             {hackathon.status.charAt(0).toUpperCase() + hackathon.status.slice(1)}
           </Badge>
-          <Button>Register for Hackathon</Button>
+          <Button>Зарегистрироваться</Button>
         </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
         <Card className="md:col-span-2 border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>About</CardTitle>
+            <CardTitle>Описание</CardTitle>
           </CardHeader>
           <CardContent>
             <p>{hackathon.description}</p>
@@ -73,31 +72,31 @@ export default function HackathonDetail() {
 
         <Card className="border border-border/40 bg-card/30 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Quick Links</CardTitle>
+            <CardTitle>Быстрые действия</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
               <Button variant="outline" className="w-full justify-start" asChild>
                 <Link to={`/hackathons/${hackathon.id}/challenges`}>
                   <FileText className="mr-2 h-4 w-4" />
-                  View Challenges
+                  Посмотреть кейсы
                 </Link>
               </Button>
               <Button variant="outline" className="w-full justify-start" asChild>
                 <Link to="/team/create">
                   <Users className="mr-2 h-4 w-4" />
-                  Create Team
+                 Создать команду
                 </Link>
               </Button>
               <Button variant="outline" className="w-full justify-start" asChild>
                 <a href="#schedule">
                   <Clock className="mr-2 h-4 w-4" />
-                  Event Schedule
+                 Посмотреть события
                 </a>
               </Button>
               <Button variant="outline" className="w-full justify-start">
                 <LinkIcon className="mr-2 h-4 w-4" />
-                Resources
+                Посмотреть ресурсы
               </Button>
             </div>
           </CardContent>
@@ -106,12 +105,11 @@ export default function HackathonDetail() {
 
       <Tabs defaultValue="challenges">
         <TabsList>
-          <TabsTrigger value="challenges">Challenges</TabsTrigger>
-          <TabsTrigger value="schedule" id="schedule">Schedule</TabsTrigger>
+          <TabsTrigger value="challenges">Кейсы</TabsTrigger>
         </TabsList>
         <TabsContent value="challenges" className="mt-6">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Available Challenges</h2>
+            <h2 className="text-2xl font-semibold">Доступные кейсы</h2>
             {challenges.length > 0 ? (
               <div className="grid gap-6 md:grid-cols-2">
                 {challenges.map((challenge) => (
@@ -135,12 +133,12 @@ export default function HackathonDetail() {
                       <p>{challenge.description}</p>
                       
                       <div>
-                        <h4 className="font-medium mb-1">Requirements</h4>
+                        <h4 className="font-medium mb-1">Требования</h4>
                         <p className="text-sm text-muted-foreground">{challenge.requirements}</p>
                       </div>
 
                       <div>
-                        <h4 className="font-medium mb-1">Prizes</h4>
+                        <h4 className="font-medium mb-1">Призы</h4>
                         <p className="text-sm text-muted-foreground">{challenge.prizes}</p>
                       </div>
                     </CardContent>
@@ -150,15 +148,15 @@ export default function HackathonDetail() {
             ) : (
               <div className="text-center py-12">
                 <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-medium">No challenges yet</h3>
-                <p className="text-muted-foreground">Challenges for this hackathon will be announced soon</p>
+                <h3 className="text-lg font-medium">Нет кейсов</h3>
+                <p className="text-muted-foreground">Кейсы сейчас не запланированы</p>
               </div>
             )}
           </div>
         </TabsContent>
         <TabsContent value="schedule" className="mt-6">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Event Schedule</h2>
+            <h2 className="text-2xl font-semibold">События</h2>
             {timeline.length > 0 ? (
               <div className="relative border-l border-border pl-8 ml-4 space-y-8">
                 {timeline.map((event, index) => (
@@ -188,8 +186,8 @@ export default function HackathonDetail() {
             ) : (
               <div className="text-center py-12">
                 <Clock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-medium">No schedule yet</h3>
-                <p className="text-muted-foreground">Schedule for this hackathon will be announced soon</p>
+                <h3 className="text-lg font-medium">Нет событий</h3>
+                <p className="text-muted-foreground">Пока нет событий :(</p>
               </div>
             )}
           </div>

@@ -40,25 +40,25 @@ function MainSidebar() {
 
   const participantMenu = [
     {
-      title: "Dashboard",
+      title: "Дашборд",
       icon: Home,
       url: "/",
       isActive: location.pathname === "/",
     },
     {
-      title: "Hackathons",
+      title: "Хакатоны",
       icon: Calendar,
       url: "/hackathons",
       isActive: location.pathname.includes("/hackathons"),
     },
     {
-      title: "My Team",
+      title: "Команда",
       icon: Users,
       url: "/team",
       isActive: location.pathname.includes("/team"),
     },
     {
-      title: "Profile",
+      title: "Профиль",
       icon: User,
       url: "/profile",
       isActive: location.pathname.includes("/profile"),
@@ -67,25 +67,25 @@ function MainSidebar() {
 
   const adminMenu = [
     {
-      title: "Dashboard",
+      title: "Дашборд",
       icon: Home,
       url: "/admin",
       isActive: location.pathname === "/admin",
     },
     {
-      title: "Manage Hackathons",
+      title: "Хакатоны",
       icon: Calendar,
       url: "/admin/hackathons",
       isActive: location.pathname.includes("/admin/hackathons"),
     },
     {
-      title: "Teams & Participants",
+      title: "Команды",
       icon: Users,
       url: "/admin/teams",
       isActive: location.pathname.includes("/admin/teams"),
     },
     {
-      title: "Settings",
+      title: "Настройки",
       icon: Settings,
       url: "/admin/settings",
       isActive: location.pathname.includes("/admin/settings"),

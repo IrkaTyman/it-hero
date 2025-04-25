@@ -22,31 +22,31 @@ export default function AdminDashboard() {
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         <StatsCard 
-          title="Upcoming Hackathons" 
+          title="Будущие хакатоны" 
           value={upcomingHackathons} 
           icon={<Calendar className="h-5 w-5" />}
-          description="Events being prepared"
+          description="Скоро начнутся"
           linkTo="/admin/hackathons"
         />
         <StatsCard 
-          title="Active Hackathons" 
+          title="Ьекущие хакатоны" 
           value={activeHackathons} 
           icon={<Clock className="h-5 w-5" />}
-          description="Currently running"
+          description="Идут сейчас"
           linkTo="/admin/hackathons"
         />
         <StatsCard 
-          title="Total Teams" 
+          title="Всего команд" 
           value={totalTeams} 
           icon={<Users className="h-5 w-5" />}
-          description="Participating teams"
+          description="Участвующие команды"
           linkTo="/admin/teams"
         />
         <StatsCard 
-          title="Completed Events" 
+          title="Проведено событий" 
           value={completedHackathons} 
           icon={<FileText className="h-5 w-5" />}
-          description="Past hackathons"
+          description="Прошедшие события"
           linkTo="/admin/hackathons"
         />
       </div>

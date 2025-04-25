@@ -75,7 +75,7 @@ export default function Profile() {
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Профиль</h1>
         <Button onClick={() => setIsEditing(!isEditing)}>
-          {isEditing ? "Cancel" : "Edit Profile"}
+          {isEditing ? "Отмена" : "Изменить профиль"}
         </Button>
       </div>
 

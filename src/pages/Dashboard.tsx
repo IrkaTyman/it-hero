@@ -132,7 +132,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                     <Button size="sm" variant="ghost" asChild>
-                      <Link to={`/hackathons/${hackathon.id}`}>View</Link>
+                      <Link to={`/hackathons/${hackathon.id}`}>Подробно</Link>
                     </Button>
                   </div>
                 ))}

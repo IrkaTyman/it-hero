@@ -218,7 +218,7 @@ const ManageHackathon = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">
-          {isNewHackathon ? "Create New Hackathon" : "Edit Hackathon"}
+          {isNewHackathon ? "Создать новый хакатон" : "Изменить хакатон"}
         </h1>
         <Button onClick={() => navigate("/admin/hackathons")}>
          К хакатонам
@@ -472,7 +472,7 @@ const ManageHackathon = () => {
 
               <Button type="submit" className="flex gap-2">
                 <Save size={16} />
-                {isNewHackathon ? "Create Hackathon" : "Save Changes"}
+                {isNewHackathon ? "Создать" : "Сохранить "}
               </Button>
             </form>
           </Form>

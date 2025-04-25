@@ -65,7 +65,7 @@ export default function Register() {
                 </label>
                 <Input
                   id="name"
-                  placeholder="Enter your full name"
+                  placeholder="Введите ФИО"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -78,7 +78,7 @@ export default function Register() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Введите почту"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -91,7 +91,7 @@ export default function Register() {
                 <Input
                   id="password"
                   type="password"
-                  placeholder="Create a strong password"
+                  placeholder="Придумайте сложный пароль"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -104,7 +104,7 @@ export default function Register() {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Creating account..." : "Create Account"}
+                {isSubmitting ? "Создание профиля..." : "Создать профиль"}
               </Button>
               <p className="text-center text-sm">
                 Уже есть аккаунт?{" "}

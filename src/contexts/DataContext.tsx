@@ -6,10 +6,10 @@ const mockHackathons: Hackathon[] = [
   {
     id: "hack1",
     title: "AI Innovation Hackathon",
-    description: "Create AI-powered solutions to solve real-world problems",
+    description: "Создание решений на основе ИИ для решения",
     startDate: "2025-05-01",
     endDate: "2025-05-03",
-    location: "Tech Hub, Moscow",
+    location: "Тех Хаб, Москва",
     image: "/placeholder.svg",
     status: "upcoming",
     organizerId: "1"
@@ -17,21 +17,21 @@ const mockHackathons: Hackathon[] = [
   {
     id: "hack2",
     title: "Blockchain Challenge",
-    description: "Build innovative blockchain applications with real-world utility",
+    description: "Создавайте инновационные блокчейн-приложения с реальной пользой",
     startDate: "2025-04-20",
     endDate: "2025-04-27",
-    location: "Digital Center, Saint Petersburg",
+    location: "Цифровой Центр, Санкт-Петербург",
     image: "/placeholder.svg",
     status: "active",
     organizerId: "1"
   },
   {
     id: "hack3",
-    title: "Web3 Hackathon",
-    description: "Create the future of decentralized web applications",
+    title: "Web3 Хакатон",
+    description: "Создайте будущее децентрализованных веб-приложений",
     startDate: "2025-04-10",
     endDate: "2025-04-12",
-    location: "Innovation Hub, Moscow",
+    location: "Инновационный центр, Москва",
     image: "/placeholder.svg",
     status: "completed",
     organizerId: "1"
@@ -43,7 +43,7 @@ const mockTeams: Team[] = [
     id: "team1",
     name: "Code Wizards",
     hackathonId: "hack2",
-    description: "We build magical software solutions",
+    description: "Мы создаем волшебные программные решения",
     memberIds: ["2"],
     createdBy: "2",
   }
@@ -52,23 +52,23 @@ const mockTeams: Team[] = [
 const mockChallenges: Challenge[] = [
   {
     id: "challenge1",
-    title: "AI Personal Assistant",
-    description: "Create an AI assistant that can help users with daily tasks",
+    title: "Персональный помощник на основе ИИ",
+    description: "Создайте помощника на основе ИИ, который может помогать пользователям с повседневными задачами",
     hackathonId: "hack1",
     companyName: "TechCorp",
     companyLogo: "/placeholder.svg",
-    requirements: "Must use machine learning, have a user-friendly interface, and be deployable on the web",
-    prizes: "1st Place: $5000, 2nd Place: $2500, 3rd Place: $1000"
+    requirements: "Необходимо использовать машинное обучение, иметь удобный интерфейс и возможность развертывания в Интернете",
+    prizes: "1 место: 500000, 2 место: 250000, 3 место: 100000"
   },
   {
     id: "challenge2",
-    title: "Blockchain for Supply Chain",
-    description: "Develop a blockchain solution to improve supply chain transparency",
+    title: "Блокчейн для цепочки поставок",
+    description: "Разработать решение на основе блокчейна для повышения прозрачности цепочки поставок",
     hackathonId: "hack1",
     companyName: "LogiChain",
     companyLogo: "/placeholder.svg",
-    requirements: "Must use a public blockchain, have a web interface, and demonstrate real-world applicability",
-    prizes: "1st Place: $7000, 2nd Place: $3000"
+    requirements: "Необходимо использовать публичный блокчейн, иметь веб-интерфейс и продемонстрировать применимость в реальном мире",
+    prizes: "1 место: 500000, 2 место: 250000, 3 место: 100000"
   }
 ];
 
@@ -77,77 +77,59 @@ const mockProjects: Project[] = [];
 const mockTimeline: TimelineEvent[] = [
   {
     id: "event1",
-    title: "Opening Ceremony",
-    description: "Introduction to the hackathon and rules explanation",
+    title: "Открытие хакатона",
+    description: "Введение в хакатон и правила проведения",
     startTime: "2025-05-01T10:00:00",
     endTime: "2025-05-01T11:00:00",
     hackathonId: "hack1",
-    location: "Main Hall"
+    location: "Главный зал"
   },
   {
     id: "event2",
-    title: "Team Formation",
-    description: "Time for participants to form teams",
+    title: "Формирование команж",
+    description: "Время для создания команды",
     startTime: "2025-05-01T11:00:00",
     endTime: "2025-05-01T12:00:00",
     hackathonId: "hack1",
-    location: "Collaboration Space"
+    location: "Главный зал"
   },
   {
     id: "event3",
-    title: "Hacking Begins",
-    description: "Start working on your projects",
+    title: "Начало программирования",
+    description: "Начало работы для проектами",
     startTime: "2025-05-01T12:00:00",
     endTime: "2025-05-03T12:00:00",
     hackathonId: "hack1",
-    location: "All Areas"
+    location: "Вся площадка"
   },
   {
     id: "event4",
-    title: "Submission Deadline",
-    description: "Final time to submit your projects",
+    title: "Дедлайн сдачи",
+    description: "Финальная сдача проекта",
     startTime: "2025-05-03T12:00:00",
     endTime: "2025-05-03T12:30:00",
     hackathonId: "hack1",
-    location: "Online Submission"
+    location: "Онлайн"
   },
-  {
-    id: "event5",
-    title: "Judging",
-    description: "Judges review submissions",
-    startTime: "2025-05-03T13:00:00",
-    endTime: "2025-05-03T15:00:00",
-    hackathonId: "hack1",
-    location: "Judging Room"
-  },
-  {
-    id: "event6",
-    title: "Awards Ceremony",
-    description: "Winners announced and prizes awarded",
-    startTime: "2025-05-03T16:00:00",
-    endTime: "2025-05-03T17:00:00",
-    hackathonId: "hack1",
-    location: "Main Hall"
-  }
 ];
 
 const mockAssignments: Assignment[] = [
   {
     id: "assignment1",
     hackathonId: "hack2",
-    title: "MVP Development",
-    description: "Create a minimum viable product for your blockchain solution",
+    title: "MVP Хакатонхаб",
+    description: "Разработать платформу для проведения хакатонов",
     dueDate: "2025-04-25",
-    requirements: "Must include smart contracts and a web interface",
+    requirements: "Нужно использовать ИИ",
     maxPoints: 100
   },
   {
     id: "assignment2",
     hackathonId: "hack2",
-    title: "Final Presentation",
-    description: "Present your solution to the jury",
+    title: "MVP Хакатонхаб",
+    description: "Разработать платформу для проведения хакатонов",
     dueDate: "2025-04-27",
-    requirements: "10-minute presentation with demo",
+    requirements: "Нужно использовать ИИ",
     maxPoints: 50
   }
 ];
@@ -155,16 +137,16 @@ const mockAssignments: Assignment[] = [
 const mockJury: JuryMember[] = [
   {
     id: "jury1",
-    name: "Dr. Anna Smith",
+    name: "Мария Смирнова",
     email: "anna.smith@example.com",
     expertise: ["Blockchain", "Smart Contracts"],
     hackathonIds: ["hack2"]
   },
   {
     id: "jury2",
-    name: "John Doe",
+    name: "Иван Иванов",
     email: "john.doe@example.com",
-    expertise: ["Web3", "DeFi"],
+    expertise: ["Web", "Backend"],
     hackathonIds: ["hack2"]
   }
 ];
@@ -342,7 +324,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     });
     
     if (!updatedHackathon) {
-      throw new Error("Hackathon not found");
+      throw new Error("Хакатон не найден");
     }
     
     return updatedHackathon;
@@ -379,7 +361,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
     });
     
     if (!updatedChallenge) {
-      throw new Error("Challenge not found");
+      throw new Error("Кейс не найдены");
     }
     
     return updatedChallenge;

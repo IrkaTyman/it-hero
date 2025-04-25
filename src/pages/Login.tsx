@@ -62,7 +62,7 @@ export default function Login() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Введите почту"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -76,7 +76,7 @@ export default function Login() {
                 <Input
                   id="password"
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Введите пароль"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -95,7 +95,7 @@ export default function Login() {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Signing in..." : "Sign In"}
+                {isSubmitting ? "Авторизация..." : "Войти"}
               </Button>
               <p className="text-center text-sm">
                 У вас нет аккаунта?{" "}

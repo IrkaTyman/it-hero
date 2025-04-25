@@ -110,7 +110,7 @@ export default function Profile() {
                   value={formData.bio}
                   onChange={handleChange}
                   disabled={!isEditing}
-                  placeholder="Tell us about yourself..."
+                  placeholder="Расскажите о себе..."
                 />
               </div>
 
@@ -142,7 +142,7 @@ export default function Profile() {
                     value={formData.newSkill}
                     onChange={handleChange}
                     onKeyDown={handleAddSkill}
-                    placeholder="Type a skill and press Enter"
+                    placeholder="Напишите навык и нажмите Enter"
                   />
                 )}
               </div>

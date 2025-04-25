@@ -54,7 +54,7 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
             <CardHeader>
                 <div className="flex items-center justify-between">
                     <div>
-                        <CardTitle>{type.charAt(0).toUpperCase() + type.slice(1)} Submission</CardTitle>
+                        <CardTitle>{type.charAt(0).toUpperCase() + type.slice(1)} решение</CardTitle>
                         <CardDescription>Подтвердите ссылку на {type}</CardDescription>
                     </div>
                     {submitted ? (
@@ -96,7 +96,7 @@ export function SubmissionCard({ type, deadline, submitted, onSubmit }: Submissi
                             disabled={isExpired}
                         />
                         <Button type="submit" disabled={isExpired || isSubmitting || !url} className="w-full">
-                            {isSubmitting ? "Submitting..." : "Submit"}
+                            {isSubmitting ? "Отправка..." : "Отправить"}
                         </Button>
                     </form>
                 )}

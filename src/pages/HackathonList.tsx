@@ -32,7 +32,7 @@ export default function HackathonList() {
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="Search hackathons..."
+          placeholder="Найти хакатоны..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="pl-10"
@@ -42,13 +42,13 @@ export default function HackathonList() {
       <Tabs defaultValue="upcoming">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="upcoming">
-            Upcoming <Badge variant="outline" className="ml-2">{upcoming.length}</Badge>
+            Будущие <Badge variant="outline" className="ml-2">{upcoming.length}</Badge>
           </TabsTrigger>
           <TabsTrigger value="active">
-            Active <Badge variant="outline" className="ml-2">{active.length}</Badge>
+            Текущие <Badge variant="outline" className="ml-2">{active.length}</Badge>
           </TabsTrigger>
           <TabsTrigger value="completed">
-            Completed <Badge variant="outline" className="ml-2">{completed.length}</Badge>
+            Прошедщие <Badge variant="outline" className="ml-2">{completed.length}</Badge>
           </TabsTrigger>
         </TabsList>
 

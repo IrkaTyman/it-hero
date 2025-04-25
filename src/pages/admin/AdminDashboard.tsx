@@ -29,7 +29,7 @@ export default function AdminDashboard() {
           linkTo="/admin/hackathons"
         />
         <StatsCard 
-          title="Ьекущие хакатоны" 
+          title="Текущие хакатоны" 
           value={activeHackathons} 
           icon={<Clock className="h-5 w-5" />}
           description="Идут сейчас"
@@ -92,24 +92,24 @@ export default function AdminDashboard() {
           </CardHeader>
           <CardContent className="space-y-4">
             <ActivityItem 
-              title="New team registered"
-              description="Team 'Code Wizards' has been created"
-              time="2 hours ago"
+              title="Новая команда зарегистрировалась"
+              description="Команжа 'Code Wizards' была создана"
+              time="2 года назад"
             />
             <ActivityItem 
-              title="Project submitted"
-              description="Team 'DevMasters' submitted their project"
-              time="5 hours ago"
+              title="Отправлен преокт"
+              description="Команда 'DevMasters' отправила свое решение"
+              time="5 лет назад"
             />
             <ActivityItem 
-              title="Hackathon created"
-              description="'AI Innovation Hackathon' has been set up"
-              time="1 day ago"
+              title="Создан хакатон"
+              description="'AI Innovation Hackathon' был создан"
+              time="1 день назад"
             />
             <ActivityItem 
-              title="Challenge added"
-              description="New challenge added to 'Web3 Hackathon'"
-              time="2 days ago"
+              title="Добавлен кейс"
+              description="Новый кейс был добавлен в хакатон 'Web3 Hackathon'"
+              time="2 дня назад"
             />
           </CardContent>
         </Card>

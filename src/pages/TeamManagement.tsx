@@ -62,7 +62,7 @@ export default function TeamManagement() {
             <CardFooter>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button className="w-full">Create Team</Button>
+                  <Button className="w-full">Создать</Button>
                 </DialogTrigger>
                 <DialogContent>
                   <CreateTeamForm onClose={() => setIsDialogOpen(false)} />
@@ -408,7 +408,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Enter your team name"
+              placeholder="Введите название команды"
               required
             />
           </div>
@@ -418,7 +418,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Describe your team and skills"
+              placeholder="Опишите навыки команды"
             />
           </div>
           <div className="space-y-2">
@@ -429,7 +429,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
               required
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select a hackathon" />
+                <SelectValue placeholder="Выберите хакатон" />
               </SelectTrigger>
               <SelectContent>
                 {upcomingHackathons.length > 0 ? (
@@ -452,7 +452,7 @@ function CreateTeamForm({ onClose }: CreateTeamFormProps) {
             Отменить
           </Button>
           <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Creating..." : "Create Team"}
+            {isSubmitting ? "Создание..." : "Создать"}
           </Button>
         </DialogFooter>
       </form>

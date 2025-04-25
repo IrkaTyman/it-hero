@@ -247,7 +247,7 @@ const ManageHackathon = () => {
                     <FormItem>
                       <FormLabel>Название</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter hackathon title" {...field} />
+                        <Input placeholder="Введите название" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -259,9 +259,9 @@ const ManageHackathon = () => {
                   name="location"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Location</FormLabel>
+                      <FormLabel>Площадка проведения</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter location" {...field} />
+                        <Input placeholder="Введите адрес площадки" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -460,7 +460,7 @@ const ManageHackathon = () => {
                     <FormLabel>Описание</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Enter hackathon description"
+                        placeholder="Введите описание"
                         className="min-h-[120px]"
                         {...field}
                       />

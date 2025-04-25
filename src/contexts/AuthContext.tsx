@@ -13,31 +13,11 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Mock user data for demonstration
-const mockUsers: User[] = [
-  {
-    id: "1",
-    email: "admin@example.com",
-    name: "Admin User",
-    role: "admin",
-    avatar: "",
-  },
-  {
-    id: "2",
-    email: "user@example.com",
-    name: "Regular User",
-    role: "participant",
-    avatar: "",
-    teamId: "team1",
-  },
-];
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check for saved user data in localStorage
     const savedUser = localStorage.getItem("hackathonUser");
     if (savedUser) {
       setUser(JSON.parse(savedUser));
@@ -54,7 +34,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         throw new Error("Invalid email or password");
       }
 
-      // Save user to state and localStorage
       setUser(mapAirtableUserToUser(user));
       localStorage.setItem("hackathonUser", JSON.stringify(mapAirtableUserToUser(user)));
     } finally {
@@ -72,7 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })
 
       setUser(mapAirtableUserToUser(newUser));
-      localStorage.setItem("hackathonUser", JSON.stringify(mapAirtableUserToUser(user)));
+      localStorage.setItem("hackathonUser", JSON.stringify(mapAirtableUserToUser(newUser)));
     } finally {
       setIsLoading(false);
     }

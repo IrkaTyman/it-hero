@@ -28,6 +28,7 @@ import TeamSubmissions from "@/pages/admin/TeamSubmissions";
 
 // Profile Page
 import Profile from "@/pages/Profile";
+import { LoaderIcon } from "lucide-react";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,9 @@ const ProtectedRoute = ({ children, requireAdmin = false }) => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen flex items-center justify-center">
+        <LoaderIcon className="animate-spin top-[50%] left-[50%] absolute" />
+    </div>;
   }
 
   if (!user) {
@@ -55,7 +58,9 @@ const AuthRoute = ({ children }) => {
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen flex items-center justify-center">
+        <LoaderIcon className="animate-spin top-[50%] left-[50%] absolute" />
+    </div>;
   }
 
   if (user) {

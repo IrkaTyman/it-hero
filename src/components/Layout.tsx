@@ -85,12 +85,6 @@ function MainSidebar() {
       url: "/admin/teams",
       isActive: location.pathname.includes("/admin/teams"),
     },
-    {
-      title: "Настройки",
-      icon: Settings,
-      url: "/admin/settings",
-      isActive: location.pathname.includes("/admin/settings"),
-    },
   ];
 
   const menuItems = user?.role === "admin" ? adminMenu : participantMenu;

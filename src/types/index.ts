@@ -13,11 +13,12 @@ export interface Hackathon {
   id: string;
   title: string;
   description: string;
+  publishDeadlineDate: string;
+  registrationDeadlineDate: string;
   startDate: string;
-  endDate: string;
   location: string;
   image?: string;
-  status: "upcoming" | "active" | "completed";
+  status: "draft" | "upcoming" | "active" | "completed";
   organizerId: string;
 }
 
@@ -29,6 +30,7 @@ export interface Team {
   memberIds: string[];
   projectId?: string;
   createdBy: string;
+  code: string;
 }
 
 export interface Challenge {

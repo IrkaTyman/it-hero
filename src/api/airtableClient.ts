@@ -10,5 +10,9 @@ if (!apiKey || !baseId) {
 export const api = new Airtable({ apiKey }).base(baseId);
 
 export const TABLES = {
-    USERS: "Пользователи"
+    USERS: "Пользователи",
+    HACKATHONS: "Хакатоны",
+    TEAMS: "Команды",
+    ARTIFACTS: 'Артефакты',
+    CASES: "Кейсы"
 }

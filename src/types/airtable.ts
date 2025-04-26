@@ -6,3 +6,16 @@ export interface AirtableUser {
     "Полное имя": string;
     "Роль": AirtableUserRole;
 }
+
+export interface AirtableTeam {
+    "ID": number;
+    "Артефакты": string[];
+    "Дата создания": string;
+    "Кейс": string[];
+    "Код приглашения": string;
+    "Название": string;
+    "Описание": string;
+    "Результаты": string[];
+    "Участники": string[];
+    "Хакатон": string;
+}

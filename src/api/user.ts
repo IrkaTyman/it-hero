@@ -25,7 +25,7 @@ export const registerUser = async ({
     }]);
 
     return {
-        "ID": created[0].id,
+        "ID": created[0].fields["ID"].toString(),
         'Полное имя': created[0].fields["Полное имя"].toString(),
         'Почта': created[0].fields["Почта"].toString(),
         'Роль': created[0].fields["Роль"] as AirtableUserRole
@@ -41,7 +41,7 @@ export const loginUser = async (email: string, password: string) => {
 
     console.log(user)
     return {
-        "ID": user.id,
+        "ID": user.fields["ID"].toString(),
         'Полное имя': user.fields["Полное имя"].toString(),
         'Почта': user.fields["Почта"].toString(),
         'Роль': user.fields["Роль"] as AirtableUserRole
@@ -59,3 +59,5 @@ const findUserByEmail = async (email: string) => {
 
     return records[0] || null;
 };
+
+

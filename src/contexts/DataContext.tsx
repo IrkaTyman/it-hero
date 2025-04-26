@@ -206,7 +206,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   };
 
   const getChallengesByHackathonId = (hackathonId: string) => {
-    return challenges.filter(challenge => challenge.hackathonId === hackathonId);
+    return challenges.filter(challenge => true);
   };
 
   const getTimelineByHackathonId = (hackathonId: string) => {
